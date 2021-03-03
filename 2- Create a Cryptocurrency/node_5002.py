@@ -122,7 +122,7 @@ def mine_block():
     previous_proof = previous_block['proof']
     proof = proof_of_work(previous_proof)
     previous_hash = hash(previous_block) 
-    blockchain.add_transaction(sender=node_address, receiver='Fatih', amount = 1)
+    blockchain.add_transaction(sender=node_address, receiver='PERFACCT', amount = 1)
     new_block = blockchain.create_block(proof, previous_hash)
 
     response = {'message' : 'Congratulations, you just mined a block!',
@@ -137,7 +137,7 @@ def mine_block():
 # Getting the full Blockchain
 @app.route('/get_chain', methods = ['GET'])
 def get_chain():
-    response = {'owner:': 'Fatih',
+    response = {'owner:': 'PERFACCT',
                 'chain': blockchain.chain,
                 'length': len(blockchain.chain)}
     return jsonify(response), 200
@@ -192,4 +192,4 @@ def replace_chain():
     return jsonify(response), 200
 
 # Running the app
-app.run(host = '0.0.0.0', port = 5000)
+app.run(host = '0.0.0.0', port = 5002)

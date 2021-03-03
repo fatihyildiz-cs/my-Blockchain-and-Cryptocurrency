@@ -137,7 +137,7 @@ def mine_block():
 # Getting the full Blockchain
 @app.route('/get_chain', methods = ['GET'])
 def get_chain():
-    response = {'owner:': 'Fatih',
+    response = {'owner': 'Fatih',
                 'chain': blockchain.chain,
                 'length': len(blockchain.chain)}
     return jsonify(response), 200
@@ -162,10 +162,9 @@ def add_transaction():
     index = blockchain.add_transaction(json['sender'], json['receiver'], json['amount'])
     response = {'message': f'This transaction will be added to Block {index}'}
     return jsonify(response), 201
-
-# Part 3 - Decentralizing our Blockchain
-
     
+### Part 3 - Decentralizing our Blockchain
+
 # Connecting new nodes
 @app.route('/connect_node', methods = ['POST'])
 def connect_node():
@@ -192,4 +191,4 @@ def replace_chain():
     return jsonify(response), 200
 
 # Running the app
-app.run(host = '0.0.0.0', port = 5000)
+app.run(host = '0.0.0.0', port = 5001)
