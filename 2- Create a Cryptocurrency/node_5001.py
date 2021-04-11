@@ -122,7 +122,7 @@ def mine_block():
     previous_proof = previous_block['proof']
     proof = proof_of_work(previous_proof)
     previous_hash = hash(previous_block) 
-    blockchain.add_transaction(sender=node_address, receiver='Fatih', amount = 1)
+    blockchain.add_transaction(sender=node_address, receiver='Fatih', amount = 10)
     new_block = blockchain.create_block(proof, previous_hash)
 
     response = {'message' : 'Congratulations, you just mined a block!',
